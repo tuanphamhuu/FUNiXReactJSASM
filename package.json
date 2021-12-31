@@ -1,0 +1,27 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "This is the Git and Node basic learning project",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node",
+    "dev": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuanphamhuu/FUNiXReactJSASM.git"
+  },
+  "keywords": [
+    "package"
+  ],
+  "author": "Pham Huu Tuan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tuanphamhuu/FUNiXReactJSASM/issues"
+  },
+  "homepage": "https://github.com/tuanphamhuu/FUNiXReactJSASM#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
