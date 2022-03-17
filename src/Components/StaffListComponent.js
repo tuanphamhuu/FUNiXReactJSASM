@@ -8,11 +8,16 @@ class StaffList extends Component {
 
     this.state = {
       selectedStaff: null,
+      selectedButton: "col-12 col-md-6 col-lg-4 mt-3",
     };
   }
 
   onStaffSelect(staffInfor) {
     this.setState({ selectedStaff: staffInfor });
+  }
+
+  onColSelect(changeCol) {
+    this.setState({ selectedButton: changeCol });
   }
 
   renderStaff(staffInfor) {
@@ -22,7 +27,9 @@ class StaffList extends Component {
           <CardImg width="100%" src={staffInfor.image} alt={staffInfor.name} />
           <CardBody>
             <CardTitle>Họ và tên: {staffInfor.name}</CardTitle>
-            <CardText>Ngày sinh: {dateFormat(staffInfor.doB, "dd/mm/yyyy")}</CardText>
+            <CardText>
+              Ngày sinh: {dateFormat(staffInfor.doB, "dd/mm/yyyy")}
+            </CardText>
             <CardText>
               Ngày vào công ty: {dateFormat(staffInfor.startDate, "dd/mm/yyyy")}
             </CardText>
@@ -33,27 +40,48 @@ class StaffList extends Component {
         </Card>
       );
     } else {
-      return <div/>
+      return <div />;
     }
   }
 
   render() {
     const staff = this.props.staffs.map((staffInfor) => {
       return (
+        <div className={this.state.selectedButton}>
         <div key={staffInfor.id} className="col-md-6 mt-1">
           <Card onClick={() => this.onStaffSelect(staffInfor)}>
-          <CardTitle>{staffInfor.name}</CardTitle>
+            <CardTitle>{staffInfor.name}</CardTitle>
           </Card>
+        </div>
         </div>
       );
     });
 
     return (
       <div className="container">
-        <div className="row">
-          {staff}
-          </div>
-          <p className="text-center">Nhấn vào tên nhân viên để hiện thông tin.</p>
+        <div className="row m-3">
+        <button
+            onClick={() => this.onColSelect("col-md-6 mt-1")}
+            className="btn btn-success mr-3"
+          >
+            2 cột
+          </button>
+          <button
+            onClick={() => this.onColSelect("col-md-4 mt-1")}
+            className="btn btn-success mr-3"
+          >
+            3 cột
+          </button>
+          
+          <button
+            onClick={() => this.onColSelect("col-md-2 mt-1")}
+            className="btn btn-success mr-3"
+          >
+            6 cột
+          </button>
+        </div>
+        <div className="row">{staff}</div>
+        <p className="text-center">Nhấn vào tên nhân viên để hiện thông tin.</p>
         <div>{this.renderStaff(this.state.selectedStaff)}</div>
       </div>
     );
