@@ -11,36 +11,38 @@ class StaffList extends Component {
     };
   }
 
-  onStaffSelect(sta) {
-    this.setState({ selectedStaff: sta });
+  onStaffSelect(staffInfor) {
+    this.setState({ selectedStaff: staffInfor });
   }
 
-  renderStaff(sta) {
-    if (sta != null) {
+  renderStaff(staffInfor) {
+    if (staffInfor != null) {
       return (
         <Card>
+          <CardImg width="100%" src={staffInfor.image} alt={staffInfor.name} />
           <CardBody>
-            <CardTitle>Họ và tên: {sta.name}</CardTitle>
-            <CardText>Ngày sinh: {dateFormat(sta.doB, "dd/mm/yyyy")}</CardText>
+            <CardTitle>Họ và tên: {staffInfor.name}</CardTitle>
+            <CardText>Ngày sinh: {dateFormat(staffInfor.doB, "dd/mm/yyyy")}</CardText>
             <CardText>
-              Ngày vào công ty: {dateFormat(sta.startDate, "dd/mm/yyyy")}
+              Ngày vào công ty: {dateFormat(staffInfor.startDate, "dd/mm/yyyy")}
             </CardText>
-            <CardText>Phòng ban: {sta.department.name} </CardText>
-            <CardText>Số ngày nghỉ còn lại: {sta.annualLeave} </CardText>
-            <CardText>Số ngày đã làm thêm: {sta.overTime} </CardText>
+            <CardText>Phòng ban: {staffInfor.department.name} </CardText>
+            <CardText>Số ngày nghỉ còn lại: {staffInfor.annualLeave} </CardText>
+            <CardText>Số ngày đã làm thêm: {staffInfor.overTime} </CardText>
           </CardBody>
         </Card>
       );
     } else {
+      return <div/>
     }
   }
 
   render() {
-    const staff = this.props.staffs.map((sta) => {
+    const staff = this.props.staffs.map((staffInfor) => {
       return (
-        <div key={sta.id} className="col-6 mt-3">
-          <Card onClick={() => this.onStaffSelect(sta)}>
-            <CardImg width="100%" src={sta.image} alt={sta.name} />
+        <div key={staffInfor.id} className="col-md-6 mt-1">
+          <Card onClick={() => this.onStaffSelect(staffInfor)}>
+          <CardTitle>{staffInfor.name}</CardTitle>
           </Card>
         </div>
       );
@@ -48,7 +50,10 @@ class StaffList extends Component {
 
     return (
       <div className="container">
-        <div className="row">{staff}</div>
+        <div className="row">
+          {staff}
+          </div>
+          <p className="text-center">Nhấn vào tên nhân viên để hiện thông tin.</p>
         <div>{this.renderStaff(this.state.selectedStaff)}</div>
       </div>
     );

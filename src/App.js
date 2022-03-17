@@ -24,6 +24,7 @@ class App extends Component {
           </div>
         </Navbar>
         <StaffList staffs={this.state.staffs}/>
+        
       </div>
     );
   }
