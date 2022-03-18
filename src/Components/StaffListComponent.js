@@ -2,6 +2,14 @@ import React, { Component } from "react";
 import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 import dateFormat from "dateformat";
 
+const classChange = {
+  col1: "col-md-12 mt-1",
+  col2: "col-md-6 mt-1",
+  col3: "col-md-4 mt-1",
+  col4: "col-md-3 mt-1",
+  col6: "col-md-2 mt-1",
+}
+let {col1, col2, col3, col4, col6} = classChange;
 class StaffList extends Component {
   constructor(props) {
     super(props);
@@ -40,7 +48,7 @@ class StaffList extends Component {
         </Card>
       );
     } else {
-      return <div />;
+      return <div/>;
     }
   }
 
@@ -61,20 +69,31 @@ class StaffList extends Component {
       <div className="container">
         <div className="row m-3">
         <button
-            onClick={() => this.onColSelect("col-md-6 mt-1")}
+            onClick={() => this.onColSelect(col1)}
+            className="btn btn-success mr-3"
+          >
+            1 cột
+          </button>
+        <button
+            onClick={() => this.onColSelect(col2)}
             className="btn btn-success mr-3"
           >
             2 cột
           </button>
           <button
-            onClick={() => this.onColSelect("col-md-4 mt-1")}
+            onClick={() => this.onColSelect(col3)}
             className="btn btn-success mr-3"
           >
             3 cột
           </button>
-          
           <button
-            onClick={() => this.onColSelect("col-md-2 mt-1")}
+            onClick={() => this.onColSelect(col4)}
+            className="btn btn-success mr-3"
+          >
+            4 cột
+          </button>
+          <button
+            onClick={() => this.onColSelect(col6)}
             className="btn btn-success mr-3"
           >
             6 cột
