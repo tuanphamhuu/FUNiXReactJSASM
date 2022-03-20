@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 import dateFormat from "dateformat";
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import { MDBBtn, MDBBadge } from "mdb-react-ui-kit";
 const classChange = {
   col1: "col-md-12 mt-1",
   col2: "col-md-6 mt-1",
   col3: "col-md-4 mt-1",
   col4: "col-md-3 mt-1",
   col6: "col-md-2 mt-1",
-}
-let {col1, col2, col3, col4, col6} = classChange;
+};
+let { col1, col2, col3, col4, col6 } = classChange;
 class StaffList extends Component {
   constructor(props) {
     super(props);
@@ -34,21 +35,31 @@ class StaffList extends Component {
         <Card>
           <CardImg width="100%" src={staffInfor.image} alt={staffInfor.name} />
           <CardBody>
-            <CardTitle>Họ và tên: {staffInfor.name}</CardTitle>
+            <CardTitle>
+              <b>Họ và tên: </b>
+              {staffInfor.name}
+            </CardTitle>
             <CardText>
-              Ngày sinh: {dateFormat(staffInfor.doB, "dd/mm/yyyy")}
+              <b>Ngày sinh:</b> {dateFormat(staffInfor.doB, "dd/mm/yyyy")}
             </CardText>
             <CardText>
-              Ngày vào công ty: {dateFormat(staffInfor.startDate, "dd/mm/yyyy")}
+              <b>Ngày vào công ty:</b>{" "}
+              {dateFormat(staffInfor.startDate, "dd/mm/yyyy")}
             </CardText>
-            <CardText>Phòng ban: {staffInfor.department.name} </CardText>
-            <CardText>Số ngày nghỉ còn lại: {staffInfor.annualLeave} </CardText>
-            <CardText>Số ngày đã làm thêm: {staffInfor.overTime} </CardText>
+            <CardText>
+              <b>Phòng ban:</b> {staffInfor.department.name}{" "}
+            </CardText>
+            <CardText>
+              <b>Số ngày nghỉ còn lại:</b> {staffInfor.annualLeave}{" "}
+            </CardText>
+            <CardText>
+              <b>Số ngày đã làm thêm:</b> {staffInfor.overTime}{" "}
+            </CardText>
           </CardBody>
         </Card>
       );
     } else {
-      return <div/>;
+      return <div />;
     }
   }
 
@@ -56,51 +67,71 @@ class StaffList extends Component {
     const staff = this.props.staffs.map((staffInfor) => {
       return (
         <div className={this.state.selectedButton}>
-        <div key={staffInfor.id} className="col-md-6 mt-1">
-          <Card onClick={() => this.onStaffSelect(staffInfor)}>
-            <CardTitle>{staffInfor.name}</CardTitle>
-          </Card>
-        </div>
+          <div key={staffInfor.id} className="mt-1 text-center">
+            <MDBBtn
+              outline
+              rounded
+              className="mx-auto btn-staff"
+              onClick={() => this.onStaffSelect(staffInfor)}
+            >
+              {staffInfor.name}
+            </MDBBtn>
+          </div>
         </div>
       );
     });
 
     return (
-      <div className="container">
-        <div className="row m-3">
-        <button
+      <div className="container my-3">
+        <div className="text-center">
+          <MDBBtn
+            rounded
+            className="mx-2"
+            color="dark"
             onClick={() => this.onColSelect(col1)}
-            className="btn btn-success mr-3"
           >
             1 cột
-          </button>
-        <button
+          </MDBBtn>
+
+          <MDBBtn
+            rounded
+            className="mx-2"
+            color="dark"
             onClick={() => this.onColSelect(col2)}
-            className="btn btn-success mr-3"
           >
             2 cột
-          </button>
-          <button
+          </MDBBtn>
+          <MDBBtn
+            rounded
+            className="mx-2"
+            color="dark"
             onClick={() => this.onColSelect(col3)}
-            className="btn btn-success mr-3"
           >
             3 cột
-          </button>
-          <button
+          </MDBBtn>
+          <MDBBtn
+            rounded
+            className="mx-2"
+            color="dark"
             onClick={() => this.onColSelect(col4)}
-            className="btn btn-success mr-3"
           >
             4 cột
-          </button>
-          <button
+          </MDBBtn>
+          <MDBBtn
+            rounded
+            className="mx-2"
+            color="dark"
             onClick={() => this.onColSelect(col6)}
-            className="btn btn-success mr-3"
           >
             6 cột
-          </button>
+          </MDBBtn>
         </div>
         <div className="row">{staff}</div>
-        <p className="text-center">Nhấn vào tên nhân viên để hiện thông tin.</p>
+        <div className="text-center my-3">
+          <MDBBadge color="dark">
+            Nhấn vào tên nhân viên để hiện thông tin.
+          </MDBBadge>
+        </div>
         <div>{this.renderStaff(this.state.selectedStaff)}</div>
       </div>
     );
