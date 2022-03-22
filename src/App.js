@@ -8,6 +8,7 @@ class App extends Component {
 
   constructor(props) {
     super(props);
+    // Lấy data từ STAFFS
     this.state = {
       staffs: STAFFS
     }

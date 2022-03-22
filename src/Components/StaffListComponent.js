@@ -12,15 +12,16 @@ const classChange = {
   col6: "col-md-2 mt-1",
 };
 let { col1, col2, col3, col4, col6 } = classChange;
+// container component
 class StaffList extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       selectedStaff: null,
-      selectedButton: "col-12 col-md-6 col-lg-4 mt-3",
+      selectedButton: "col-12 col-md-6 col-lg-4 mt-3", // default value
     };
   }
+
 
   onStaffSelect(staffInfor) {
     this.setState({ selectedStaff: staffInfor });
@@ -82,7 +83,7 @@ class StaffList extends Component {
         </div>
       );
     });
-
+    
     return (
       <div className="container my-3">
         <div className="text-center">
