@@ -74,7 +74,7 @@ export const STAFFS =
             department: DEPARTMENTS[2],
             annualLeave: 6,
             overTime: 7,
-            image: '/assets/images/alberto.png',
+            image: '/assets/images/biden.png',
         },
         {
             id: 4,
@@ -85,7 +85,7 @@ export const STAFFS =
             department: DEPARTMENTS[2],
             annualLeave: 8,
             overTime: 1,
-            image: '/assets/images/alberto.png',
+            image: '/assets/images/ukr.png',
         },
         {
             id: 5,
@@ -96,7 +96,7 @@ export const STAFFS =
             department: DEPARTMENTS[4],
             annualLeave: 9,
             overTime: 10,
-            image: '/assets/images/alberto.png',
+            image: '/assets/images/hitle.png',
         },
         {
             id: 6,
