@@ -3,6 +3,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 import dateFormat from "dateformat";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MDBBtn, MDBBadge } from "mdb-react-ui-kit";
+
 const classChange = {
   col1: "col-md-12 mt-1",
   col2: "col-md-6 mt-1",
@@ -59,10 +60,11 @@ class StaffList extends Component {
         </Card>
       );
     } else {
-      return <div />;
+      return <div/>;
     }
   }
 
+  // Hiển thị tên nhân viên - sử dụng arrow function truyền tham số staffInfor
   render() {
     const staff = this.props.staffs.map((staffInfor) => {
       return (
