@@ -22,7 +22,6 @@ class StaffList extends Component {
     };
   }
 
-
   onStaffSelect(staffInfor) {
     this.setState({ selectedStaff: staffInfor });
   }
@@ -61,7 +60,7 @@ class StaffList extends Component {
         </Card>
       );
     } else {
-      return <div/>;
+      return <div />;
     }
   }
 
@@ -83,7 +82,7 @@ class StaffList extends Component {
         </div>
       );
     });
-    
+
     return (
       <div className="container my-3">
         <div className="text-center">

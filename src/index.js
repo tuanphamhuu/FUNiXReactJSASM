@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css'
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

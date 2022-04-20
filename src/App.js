@@ -1,18 +1,10 @@
 // import "./App.css";
 import { Navbar, NavbarBrand } from "reactstrap";
 import { Component } from "react";
-import StaffList from "./Components/StaffListComponent";
-import { STAFFS } from './shared/staffs';
-
+import Main from "./Components/MainComponent";
+import "./App.css";
 class App extends Component {
-
-  constructor(props) {
-    super(props);
-    // Lấy data từ STAFFS
-    this.state = {
-      staffs: STAFFS
-    }
-  } 
+  
   render() {
     return (
       <div>
@@ -23,8 +15,8 @@ class App extends Component {
             </NavbarBrand>
           </div>
         </Navbar>
-        <StaffList staffs={this.state.staffs}/>
-        
+        <Main/>
+       
       </div>
     );
   }
