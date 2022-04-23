@@ -78,6 +78,9 @@ class StaffList extends Component {
             >
               {staffInfor.name}
             </MDBBtn>
+            <div>
+            <CardImg width="50px" src={staffInfor.image} alt={staffInfor.name} />
+              </div>
           </div>
         </div>
       );

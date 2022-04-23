@@ -6,20 +6,19 @@ function Header() {
         <div>
             <Navbar color="primary">
                 <div className="container">
-                <NavbarBrand><img src="assets/images/logo.png" width="40" alt="Quan Li Nhan Vien" /> </NavbarBrand>
-                <Nav>
-                    <NavItem>
-                        <span className="fa fa-users fa-lg"></span> Nhân viên
-                    </NavItem>
-                    <NavItem>
-                        <span className="fa fa-users fa-lg"></span> Phòng ban
-                    </NavItem>
-                    <NavItem>
-                        <span className="fa fa-users fa-lg"></span> Bảng lương
-                    </NavItem>
-                </Nav>
+                    <NavbarBrand><img src="assets/images/logo.png" width="40" alt="Quan Li Nhan Vien" /> </NavbarBrand>
+                    <Nav>
+                        <NavItem>
+                            <span className="fa fa-users fa-lg"></span> Nhân viên
+                        </NavItem>
+                        <NavItem>
+                            <span className="fa fa-address-card fa-lg"></span> Phòng ban
+                        </NavItem>
+                        <NavItem>
+                            <span className="fa fa-money fa-lg"></span> Bảng lương
+                        </NavItem>
+                    </Nav>
                 </div>
-                
             </Navbar>
         </div>
     );
