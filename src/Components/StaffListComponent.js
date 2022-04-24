@@ -70,6 +70,7 @@ class StaffList extends Component {
       return (
         <div className={this.state.selectedButton}>
           <div key={staffInfor.id} className="mt-1 text-center">
+          <CardImg width="50px" src={staffInfor.image} alt={staffInfor.name} />
             <MDBBtn
               outline
               rounded
@@ -79,7 +80,7 @@ class StaffList extends Component {
               {staffInfor.name}
             </MDBBtn>
             <div>
-            <CardImg width="50px" src={staffInfor.image} alt={staffInfor.name} />
+            
               </div>
           </div>
         </div>

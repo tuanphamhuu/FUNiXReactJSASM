@@ -1,21 +1,28 @@
 import React from 'react';
-import { Navbar, NavbarBrand, NavbarToggler, NavItem, Collapse, Nav } from 'reactstrap';
+import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron } from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 
 function Header() {
     return (
         <div>
-            <Navbar color="primary">
+            <Navbar color="primary" dark expand="md">
                 <div className="container">
-                    <NavbarBrand><img src="assets/images/logo.png" width="40" alt="Quan Li Nhan Vien" /> </NavbarBrand>
+                    <NavbarBrand href="/" className="mr-auto"><img src="assets/images/logo.png" width="40" alt="Quan Li Nhan Vien" /> </NavbarBrand>             
                     <Nav>
                         <NavItem>
-                            <span className="fa fa-users fa-lg"></span> Nhân viên
+                            <NavLink className="nav-link" to="/nhanvien">
+                                <span className="fa fa-users fa-lg"></span> Nhân viên
+                            </NavLink>
                         </NavItem>
                         <NavItem>
-                            <span className="fa fa-address-card fa-lg"></span> Phòng ban
+                            <NavLink className="nav-link" to="/phongban">
+                                <span className="fa fa-address-card fa-lg"></span> Phòng ban
+                            </NavLink>
                         </NavItem>
                         <NavItem>
-                            <span className="fa fa-money fa-lg"></span> Bảng lương
+                            <NavLink className="nav-link" to="/bangluong">
+                                <span className="fa fa-money fa-lg"></span> Bảng lương
+                            </NavLink>
                         </NavItem>
                     </Nav>
                 </div>
