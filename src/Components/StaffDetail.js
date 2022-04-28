@@ -2,6 +2,8 @@ import React from "react";
 import { Card, CardBody, CardImg, CardText, CardTitle, Breadcrumb, BreadcrumbItem } from "reactstrap";
 import { Link } from "react-router-dom";
 import dateFormat from "dateformat";
+import { MDBRow, MDBCol } from 'mdb-react-ui-kit';
+
 
 function StaffDetail(props) {
   if (props.staff != null) {
@@ -14,7 +16,12 @@ function StaffDetail(props) {
             </BreadcrumbItem>
             <BreadcrumbItem active>{props.staff.name}</BreadcrumbItem>
           </Breadcrumb>
+          <div className="col-12">
+            <h5>Thông tin nhân viên</h5>
+            <hr />
+          </div>
         </div>
+
         <div className="row mb-3">
           <RenderStaff staffInfor={props.staff} />
         </div>
@@ -29,16 +36,16 @@ function RenderStaff({ staffInfor }) {
   if (staffInfor != null) {
     return (
       <div className="col-12">
-          <div className="row">
-        <Card>
-          <div className="col-3">
-            <CardImg width="100%" src={staffInfor.image} alt={staffInfor.name} />
-          </div>
-          <div className="col-9">
-            <CardBody >
+        <div className="row">
+          <MDBRow>
+            <MDBCol md='4' className='col-example'>
+              <CardImg width="100%" src={staffInfor.image} alt={staffInfor.name} />
+            </MDBCol>
+
+            <MDBCol md='8' className='col-example shadow'>
               <CardTitle>
-                <b>Họ và tên: 
-                {staffInfor.name} </b>
+                <b>Họ và tên:
+                  {staffInfor.name} </b>
               </CardTitle>
               <CardText>
                 <b>Ngày sinh:</b> {dateFormat(staffInfor.doB, "dd/mm/yyyy")}
@@ -56,9 +63,9 @@ function RenderStaff({ staffInfor }) {
               <CardText>
                 <b>Số ngày đã làm thêm:</b> {staffInfor.overTime}{" "}
               </CardText>
-            </CardBody>
-          </div>
-        </Card>
+            </MDBCol>
+
+          </MDBRow>
         </div>
       </div>
     );

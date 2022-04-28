@@ -9,13 +9,6 @@ class App extends Component {
     return (
      <BrowserRouter>
       <div>
-        {/* <Navbar dark color="primary">
-          <div className="container">
-            <NavbarBrand href="/" className="text-center">
-              Ứng dụng quản lý nhân sự 1.0
-            </NavbarBrand>
-          </div>
-        </Navbar> */}
         <Main/>
       </div>
       </BrowserRouter>

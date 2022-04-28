@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Card, CardTitle, CardBody, CardText, Breadcrumb, BreadcrumbItem } from "reactstrap";
 import { Link } from 'react-router-dom';
+
+
 // Presentational Component
 class RenderDept extends Component {
   render() {
@@ -18,7 +20,6 @@ class RenderDept extends Component {
   }
 }
 
-//Container components
 function Department(props) {
   //Dung map() de fetch toan bo data tu props cua MainComponent
   const departments = props.dept.map((department) => {

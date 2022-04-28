@@ -23,11 +23,16 @@ import { MDBBtn, MDBBadge } from "mdb-react-ui-kit";
 
 function RenderStaffList({ staff }) {
   return (
-    <Card>
+
+
+    <Card className = "text-center">
       <Link to={`/nhanvien/${staff.id}`} >
         <CardImg width="100%" src={staff.image} alt={staff.name} />
 
-        <CardTitle>{staff.name}</CardTitle>
+        <MDBBtn
+          outline
+          className="mx-auto btn-staff"
+        >{staff.name} </MDBBtn>
 
       </Link>
     </Card>

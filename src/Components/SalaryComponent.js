@@ -9,8 +9,8 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
-const luongCB = 3000000;
-const luongGio = 200000 / 8;
+const basicSalary = 3000000;
+const hourlyWage = 200000 / 8;
 
 function RenderSalary({ salary, colorSalary }) {
   return (
@@ -21,10 +21,8 @@ function RenderSalary({ salary, colorSalary }) {
         <CardText>Hệ số lương: {salary.salaryScale}</CardText>
         <CardText>Số giờ làm thêm: {salary.overTime}</CardText>
         <CardText className="bg-light p-2 shadow">
-          Lương:{" "}
-          {(salary.salaryScale * luongCB + salary.overTime * luongGio).toFixed(
-            0
-          )}
+          Lương :{" "}
+          {(salary.salaryScale * basicSalary + salary.overTime * hourlyWage).toFixed(0)}
         </CardText>
       </CardBody>
     </Card>
@@ -34,20 +32,31 @@ function RenderSalary({ salary, colorSalary }) {
 const Salary = (props) => {
   const [sortSalary, setSortSalary] = useState(false);
 
-  const salary = props.luong.map((ss) => {
-    return (
-      <div className="col-12 col-md-6 col-lg-4 mt-2 mb-2" key={ss.id}>
-        <RenderSalary salary={ss} />
-      </div>
-    );
-  });
+  // const salary = props.luong.map((ss) => {
+  //   return (
+  //     <div className="col-12 col-md-6 col-lg-4 mt-2 mb-2" key={ss.id}>
+  //       <RenderSalary salary={ss} />
+  //     </div>
+  //   );
+  // });
 
+  const salary = props.luong
+    .sort((a, b) =>
+      sortSalary ? a.salaryScale - b.salaryScale : b.salaryScale - a.salaryScale
+    )
+    .map((array) => {
+      return (
+        <div className="col-12 col-md-6 col-lg-4 mt-2 mb-2" key={array.id}>
+          <RenderSalary salary={array} />
+        </div>
+      );
+    });
   return (
     <div className="container">
       <div className="row">
         <Breadcrumb>
           <BreadcrumbItem>
-            <Link to="/staff">Nhân viên</Link>
+            <Link to="/nhanvien">Nhân viên</Link>
           </BreadcrumbItem>
           <BreadcrumbItem active>Bảng Lương</BreadcrumbItem>
         </Breadcrumb>

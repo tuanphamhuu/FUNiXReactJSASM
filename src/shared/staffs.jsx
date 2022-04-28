@@ -107,7 +107,7 @@ export const STAFFS =
             department: DEPARTMENTS[4],
             annualLeave: 9,
             overTime: 10,
-            image: '/assets/images/alberto.png',
+            image: '/assets/images/elonmusk.png',
         },
         {
             id: 7,

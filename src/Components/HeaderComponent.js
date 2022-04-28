@@ -8,13 +8,14 @@ import {
     MDBNavbarLink,
     MDBNavbarToggler,
     MDBContainer,
-    MDBIcon
+    MDBIcon,
+    MDBBtn,
 } from 'mdb-react-ui-kit';
 
 function Header() {
     return (
         <header>
-            <MDBNavbar expand='lg' light bgColor='white'>
+            <MDBNavbar expand="lg" light bgColor='white' fixed>
                 <MDBContainer fluid>
                     <MDBNavbarToggler
                         aria-controls='navbarExample01'
@@ -25,24 +26,35 @@ function Header() {
                     </MDBNavbarToggler>
                     <div className='collapse navbar-collapse' id='navbarExample01'>
                         <MDBNavbarNav right className='mb-2 mb-lg-0'>
-                            <NavbarBrand href="/" className="mr-auto"><img src="assets/images/logo.png" width="40" alt="Quan Li Nhan Vien" /> </NavbarBrand>
-                            <MDBNavbarItem active>
-                                <NavLink className="nav-link" to="/nhanvien">
-                                    <span className="fa fa-users fa-lg"></span> Nhân viên
-                                </NavLink>
-                            </MDBNavbarItem>
-                            <MDBNavbarItem active>
-                                <NavLink className="nav-link" to="/phongban">
-                                    <span className="fa fa-address-card fa-lg"></span> Phòng ban
-                                </NavLink>
-                            </MDBNavbarItem>
-                            <MDBNavbarItem active>
-                                <NavLink className="nav-link" to="/bangluong">
-                                    <span className="fa fa-money fa-lg"></span> Bảng lương
-                                </NavLink>
-                            </MDBNavbarItem>
+                            {/* <NavbarToggler onClick={this.toggleNav} /> */}
+                            <NavbarBrand href="/" className="mr-auto"><img src="assets/images/logonhansu.png" width="50" alt="Quan Li Nhan Vien" /> </NavbarBrand>
+
+                            <Collapse navbar>
+                                <MDBNavbarItem active>
+                                    <NavLink className="nav-link" to="/nhanvien">
+                                        <span className="fa fa-users fa-lg"></span> Nhân viên
+                                    </NavLink>
+                                </MDBNavbarItem>
+                                <MDBNavbarItem active>
+                                    <NavLink className="nav-link" to="/phongban">
+                                        <span className="fa fa-address-card fa-lg"></span> Phòng ban
+                                    </NavLink>
+                                </MDBNavbarItem>
+                                <MDBNavbarItem active>
+                                    <NavLink className="nav-link" to="/bangluong">
+                                        <span className="fa fa-money fa-lg"></span> Bảng lương
+                                    </NavLink>
+                                </MDBNavbarItem>
+                            </Collapse>
                         </MDBNavbarNav>
+
+                        <form className='d-flex input-group w-auto'>
+                            <input type='search' className='form-control' placeholder='Tìm kiếm nhân viên' aria-label='Search' />
+                            <MDBBtn color='primary'>Search</MDBBtn>
+                        </form>
+
                     </div>
+
                 </MDBContainer>
             </MDBNavbar>
         </header>

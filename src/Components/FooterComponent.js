@@ -1,10 +1,10 @@
      import React from "react";
-
+     import { MDBFooter } from 'mdb-react-ui-kit';
      
           function Footer(props) {
             return (
-              <div className="footer bg-primary">
-                <div className="container">
+              <MDBFooter expand="md" bgColor='light' className='footer text-center text-lg-start text-muted'>
+                <div className="container ">
                   <div className="row justify-content center">
                     <div className="col-7 col-sm-5">
                       <h5>Our Address</h5>
@@ -63,11 +63,12 @@
                   </div>
                   <div className="row justify-content-center">
                     <div className="col-auto">
-                      <p>© Copyright 2018 Ristorante Con Fusion</p>
+                      <p>© 2020 Copyright Pham Huu Tuan</p>
                     </div>
                   </div>
                 </div>
-              </div>
+             </MDBFooter>
+              
             );
           }
           export default Footer;    
