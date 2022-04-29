@@ -32,6 +32,7 @@ function RenderStaffList({ staff }) {
         <MDBBtn
           outline
           className="mx-auto btn-staff"
+          color='info'
         >{staff.name} </MDBBtn>
 
       </Link>

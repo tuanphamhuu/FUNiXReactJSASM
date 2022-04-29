@@ -12,22 +12,29 @@ import {
     MDBBtn,
 } from 'mdb-react-ui-kit';
 
+
 function Header() {
+
+
     return (
-        <header>
-            <MDBNavbar expand="lg" light bgColor='white' fixed>
+
+    
+        <header className='header'>
+
+
+            <MDBNavbar expand="lg" light  fixed>
                 <MDBContainer fluid>
-                    <MDBNavbarToggler
+                    {/* <MDBNavbarToggler
                         aria-controls='navbarExample01'
                         aria-expanded='false'
                         aria-label='Toggle navigation'
                     >
                         <MDBIcon fas icon='bars' />
-                    </MDBNavbarToggler>
+                    </MDBNavbarToggler> */}
                     <div className='collapse navbar-collapse' id='navbarExample01'>
                         <MDBNavbarNav right className='mb-2 mb-lg-0'>
                             {/* <NavbarToggler onClick={this.toggleNav} /> */}
-                            <NavbarBrand href="/" className="mr-auto"><img src="assets/images/logonhansu.png" width="50" alt="Quan Li Nhan Vien" /> </NavbarBrand>
+                            <NavbarBrand href="/" className="mr-auto"><img src="assets/images/logonhansu.png" width="35" alt="Quan Li Nhan Vien" /> </NavbarBrand>
 
                             <Collapse navbar>
                                 <MDBNavbarItem active>
@@ -57,6 +64,7 @@ function Header() {
 
                 </MDBContainer>
             </MDBNavbar>
+           
         </header>
     );
 }

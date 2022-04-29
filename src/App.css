@@ -10,8 +10,12 @@
   min-height:400px;
 }
 
+.header{
+  background-color: rgba(0, 195, 255, 0.161);
+}
+
 .footer{
-  background-color: rgba(170, 170, 250, 0.516);
+  background-color: rgba(0, 195, 255, 0.161);
   margin:0px auto;
   padding: 20px 0px 20px 0px;
 }
@@ -19,7 +23,7 @@
   padding:70px 30px 70px 30px;
   margin:0px auto;
   background: #67b3ff ;
-  color:floralwhite;
+  color:rgb(255, 255, 255);
 }
 
 address{
