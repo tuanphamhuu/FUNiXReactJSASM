@@ -17,7 +17,7 @@ function StaffDetail(props) {
             <BreadcrumbItem active>{props.staff.name}</BreadcrumbItem>
           </Breadcrumb>
           <div className="col-12">
-            <h5>Thông tin nhân viên</h5>
+            <h5 className="salary">Thông tin nhân viên</h5>
             <hr />
           </div>
         </div>
@@ -42,26 +42,26 @@ function RenderStaff({ staffInfor }) {
               <CardImg width="100%" src={staffInfor.image} alt={staffInfor.name} />
             </MDBCol>
 
-            <MDBCol md='8' className='col-example shadow'>
+            <MDBCol md='8' className='col-example shadow detail'>
               <CardTitle>
-                <b>Họ và tên:
+                <b>Họ và tên: {" "}
                   {staffInfor.name} </b>
               </CardTitle>
               <CardText>
-                <b>Ngày sinh:</b> {dateFormat(staffInfor.doB, "dd/mm/yyyy")}
+                <b>Ngày sinh:</b> {" "} {dateFormat(staffInfor.doB, "dd/mm/yyyy")}
               </CardText>
               <CardText>
                 <b>Ngày vào công ty:</b>{" "}
                 {dateFormat(staffInfor.startDate, "dd/mm/yyyy")}
               </CardText>
               <CardText>
-                <b>Phòng ban:</b> {staffInfor.department.name}{" "}
+                <b>Phòng ban:</b> {" "} {staffInfor.department.name}{" "}
               </CardText>
               <CardText>
-                <b>Số ngày nghỉ còn lại:</b> {staffInfor.annualLeave}{" "}
+                <b>Số ngày nghỉ còn lại:</b> {" "} {staffInfor.annualLeave}{" "}
               </CardText>
               <CardText>
-                <b>Số ngày đã làm thêm:</b> {staffInfor.overTime}{" "}
+                <b>Số ngày đã làm thêm:</b> {" "} {staffInfor.overTime}{" "}
               </CardText>
             </MDBCol>
 

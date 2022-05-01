@@ -1,37 +1,74 @@
-.row-header{
-  margin:0px auto;
-  padding:0px auto;
+.row-header {
+  margin: 0px auto;
+  padding: 0px auto;
 }
 
 .row-content {
-  margin:0px auto;
+  margin: 0px auto;
   padding: 50px 0px 50px 0px;
   border-bottom: 1px ridge;
-  min-height:400px;
+  min-height: 400px;
 }
 
-.header{
+.header {
   background-color: rgba(0, 195, 255, 0.161);
+  font-size: 15px;
+  font-family: "Mali", cursive;
+  font-weight: 1000 !important;
+  text-align: center !important;
 }
 
-.footer{
+.footer {
   background-color: rgba(0, 195, 255, 0.161);
-  margin:0px auto;
+  margin: 0px auto;
   padding: 20px 0px 20px 0px;
+  font-family: "Mali", cursive;
+  font-size: 15px;
+  font-weight: 900;
 }
 .jumbotron {
-  padding:70px 30px 70px 30px;
-  margin:0px auto;
-  background: #67b3ff ;
-  color:rgb(255, 255, 255);
+  padding: 70px 30px 70px 30px;
+  margin: 0px auto;
+  background: #67b3ff;
+  color: rgb(255, 255, 255);
+}
+.phongban {
+  font-family: "Mali", cursive;
+  font-size: 15px;
+  font-weight: 900;
 }
 
-address{
-  font-size:80%;
-  margin:0px;
-  color:#0f0f0f;
+address {
+  font-size: 80%;
+  margin: 0px;
+  color: #0f0f0f;
 }
 
 .navbar-dark {
-  background-color: #512DA8;
+  background-color: #512da8;
 }
+div#navbarSupportedContent {
+  padding-left: 3rem;
+}
+
+.stafflist {
+  font-weight: 2000 !important;
+  font-size: 16px !important
+
+}
+
+.salary {
+  font-weight: 900;
+  font-size: 15px;
+  font-family: "Mali", cursive;
+}
+ .detail{
+  font-weight: 300;
+  font-size: 25px;
+  font-family: 'Radio Canada', sans-serif;
+  padding-top: 50px;
+  padding-left: 40px !important
+ }
+/* .staffList {
+  font-size:40px !important
+} */

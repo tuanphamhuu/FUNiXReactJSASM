@@ -12,9 +12,9 @@ import { Link } from "react-router-dom";
 const basicSalary = 3000000;
 const hourlyWage = 200000 / 8;
 
-function RenderSalary({ salary, colorSalary }) {
+function RenderSalary({ salary }) {
   return (
-    <Card>
+    <Card className="salary">
       <CardTitle className="p-3 bg-white rounded m-2">{salary.name}</CardTitle>
       <CardBody>
         <CardText>Mã nhân viên: {salary.id}</CardText>
@@ -63,7 +63,7 @@ const Salary = (props) => {
       </div>
 
       <button
-        className="btn btn-danger"
+        className="btn btn-primary"
         onClick={() => setSortSalary(!sortSalary)}
       >
         Sắp xếp theo Hệ số lương

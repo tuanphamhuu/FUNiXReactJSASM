@@ -5,7 +5,7 @@ function Footer(props) {
   return (
     <MDBFooter expand="md"  className='footer text-center text-lg-start text-muted'>
       <div className="container ">
-        <div className="row justify-content center">
+
           <div className="col-7 col-sm-5">
             <h5>Our Address</h5>
             <address>
@@ -57,7 +57,7 @@ function Footer(props) {
             <p>© 2020 Copyright Pham Huu Tuan</p>
           </div>
         </div>
-      </div>
+     
     </MDBFooter>
 
   );
