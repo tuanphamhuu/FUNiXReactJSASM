@@ -53,8 +53,7 @@ div#navbarSupportedContent {
 
 .stafflist {
   font-weight: 2000 !important;
-  font-size: 16px !important
-
+  font-size: 16px !important;
 }
 
 .salary {
@@ -62,13 +61,22 @@ div#navbarSupportedContent {
   font-size: 15px;
   font-family: "Mali", cursive;
 }
- .detail{
+.detail {
   font-weight: 300;
   font-size: 25px;
-  font-family: 'Radio Canada', sans-serif;
+  font-family: "Radio Canada", sans-serif;
   padding-top: 50px;
-  padding-left: 40px !important
- }
+  padding-left: 40px !important;
+}
 /* .staffList {
   font-size:40px !important
 } */
+div.header-wrap {
+  position: relative;
+}
+.btn-hamburger {
+  left: 3rem !important;
+  top: 2rem;
+  position: absolute;
+  font-size: 16px;
+}

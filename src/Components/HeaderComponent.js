@@ -8,9 +8,9 @@ function Header() {
     return (
         <header className='header'>
             <nav className="navbar navbar-expand-lg navbar-light #e3f2fd ">
-                <div className="container-fluid">
+                <div className="container-fluid header-wrap">
                     <button
-                        className="navbar-toggler"
+                        className="navbar-toggler btn-hamburger"
                         type="button"
                         data-mdb-toggle="collapse"
                         data-mdb-target="#navbarSupportedContent"

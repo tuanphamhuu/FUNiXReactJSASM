@@ -32,19 +32,12 @@ function RenderSalary({ salary }) {
 const Salary = (props) => {
   const [sortSalary, setSortSalary] = useState(false);
 
-  // const salary = props.luong.map((ss) => {
-  //   return (
-  //     <div className="col-12 col-md-6 col-lg-4 mt-2 mb-2" key={ss.id}>
-  //       <RenderSalary salary={ss} />
-  //     </div>
-  //   );
-  // });
-
   const salary = props.luong
     .sort((a, b) =>
       sortSalary ? a.salaryScale - b.salaryScale : b.salaryScale - a.salaryScale
     )
     .map((array) => {
+
       return (
         <div className="col-12 col-md-6 col-lg-4 mt-2 mb-2" key={array.id}>
           <RenderSalary salary={array} />
@@ -52,6 +45,7 @@ const Salary = (props) => {
       );
     });
   return (
+
     <div className="container">
       <div className="row">
         <Breadcrumb>
