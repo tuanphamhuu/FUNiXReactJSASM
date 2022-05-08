@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 class RenderDept extends Component {
   render() {
     return (
-      //Render Department dung props cua Department Component
+      //Render Department 
       <Card>
-        <CardTitle className="m-2">{this.props.dept.name}</CardTitle>
+        <CardTitle className="m-4">{this.props.dept.name}</CardTitle>
         <CardBody>
           <CardText>
             Số lượng nhân viên: {this.props.dept.numberOfStaff}
@@ -21,7 +21,6 @@ class RenderDept extends Component {
 }
 
 function Department(props) {
-  //Dung map() de fetch toan bo data tu props cua MainComponent
   const departments = props.dept.map((department) => {
     return (
 

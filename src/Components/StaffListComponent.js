@@ -15,7 +15,8 @@ function RenderStaffList({ staff }) {
           outline
           className="mx-auto btn-staff stafflist"
           color='primary'
-        >{staff.name} </MDBBtn>
+        >{staff.name}
+        </MDBBtn>
 
       </Link>
     </Card>

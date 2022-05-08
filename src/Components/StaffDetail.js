@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardBody, CardImg, CardText, CardTitle, Breadcrumb, BreadcrumbItem } from "reactstrap";
+import { CardImg, CardText, CardTitle, Breadcrumb, BreadcrumbItem } from "reactstrap";
 import { Link } from "react-router-dom";
 import dateFormat from "dateformat";
 import { MDBRow, MDBCol } from 'mdb-react-ui-kit';
