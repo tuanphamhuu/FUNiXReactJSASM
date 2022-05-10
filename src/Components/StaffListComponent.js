@@ -10,14 +10,12 @@ function RenderStaffList({ staff }) {
     <Card className="text-center">
       <Link to={`/nhanvien/${staff.id}`} >
         <CardImg width="100%" src={staff.image} alt={staff.name} />
-
         <MDBBtn
           outline
           className="mx-auto btn-staff stafflist"
           color='primary'
         >{staff.name}
         </MDBBtn>
-
       </Link>
     </Card>
   );
@@ -58,9 +56,7 @@ const StaffList = (props) => {
       <div className="row">{nhanvien}</div>
     </div>
   );
-
 };
-
 
 export default StaffList;
 

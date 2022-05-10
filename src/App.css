@@ -62,9 +62,9 @@ div#navbarSupportedContent {
   font-family: "Mali", cursive;
 }
 .detail {
-  font-weight: 300;
-  font-size: 25px;
-  font-family: "Radio Canada", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  font-family: "Mali", cursive;
   padding-top: 50px;
   padding-left: 40px !important;
 }
@@ -79,4 +79,18 @@ div.header-wrap {
   top: 2rem;
   position: absolute;
   font-size: 16px;
+}
+
+.nameSalary {
+  color: rgb(0, 13, 128);
+}
+
+.luongSalary {
+  color: rgb(221, 0, 0)!important;
+}
+
+.deparCss {
+  font-weight: 900;
+  color: rgb(0, 13, 128);
+  font-size: 24px;
 }

@@ -9,7 +9,7 @@ class RenderDept extends Component {
     return (
       //Render Department 
       <Card>
-        <CardTitle className="m-4">{this.props.dept.name}</CardTitle>
+        <CardTitle className="m-4 deparCss">{this.props.dept.name}</CardTitle>
         <CardBody>
           <CardText>
             Số lượng nhân viên: {this.props.dept.numberOfStaff}
