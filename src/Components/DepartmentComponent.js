@@ -20,6 +20,7 @@ class RenderDept extends Component {
   }
 }
 
+// Container Component
 function Department(props) {
   const departments = props.dept.map((department) => {
     return (

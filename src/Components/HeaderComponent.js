@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 
 function Header() {
 
-
     return (
         <header className='header'>
             <nav className="navbar navbar-expand-lg navbar-light #e3f2fd ">

@@ -28,7 +28,7 @@ function StaffDetail(props) {
       </div>
     );
   } else {
-    return <div></div>;
+    return <div/>;
   }
 }
 

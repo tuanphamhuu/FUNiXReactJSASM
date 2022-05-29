@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Card, CardImg, Breadcrumb, BreadcrumbItem } from "reactstrap";
 import { Link } from 'react-router-dom';
 import { MDBBtn } from "mdb-react-ui-kit";
 
-
 function RenderStaffList({ staff }) {
-
+  // Render ra Tên nhân viên và Hình nhân viên
   return (
     <Card className="text-center">
       <Link to={`/nhanvien/${staff.id}`} >
@@ -23,13 +22,42 @@ function RenderStaffList({ staff }) {
 
 const StaffList = (props) => {
   const [column, setCol] = useState("col-12 col-md-6 col-lg-4 mt-3");
-  const nhanvien = props.staffs.map((staff) => {
+  
+  const inputName = useRef();                      
+  // Search Staff
+  const handleSearchStaff = () => {
+    console.log('List staffs', props.staffs);
+    let listView = props.staffs;
+    const searchText = inputName.current.value.toString().toLowerCase();
+    console.log('Gia tri tu o Input:', searchText, inputName.current.value);
+    if(listView.length > 0 && searchText) {
+      listView = listView.filter((e) => {
+        return (
+          (e?.name)
+            .toString()
+            .toLowerCase() 
+            .includes(searchText)
+        );
+      });
+    }
+    else{
+      // alert("Ô tìm kiếm trống")
+      <div className="row">{nhanvien}</div>
+    }
+    console.log('Gia tri loc', listView);
+    props.changeStaffsView(listView);
+  };
+
+
+
+  const nhanvien = props.staffsView.map((staff) => {
     return (
       <div className={column} key={staff.id}>
         <RenderStaffList staff={staff} />
       </div>
     );
   });
+                            
 
   return (
     <div className="container">
@@ -39,9 +67,10 @@ const StaffList = (props) => {
           <BreadcrumbItem active> Danh Sách Nhân Viên</BreadcrumbItem>
         </Breadcrumb>
 
+<div>
         {/* Dropdown Button*/}
         <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false">
+          <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false">
             Sắp xếp danh sách nhân viên
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -52,11 +81,26 @@ const StaffList = (props) => {
             <li><button class="dropdown-item" type="button" onClick={() => setCol("col-md-2 mt-1")}>6 cột </button></li>
           </ul>
         </div>
+
+        {/* Tìm kiếm nhân viên  */}
+
+        <div className="col-1 col-md-3">
+          <input label='Example label'
+            ref={inputName}
+            type="text"
+            className="form-control"
+            placeholder="Tìm kiếm nhân viên..."
+          />
+        </div>
+        <div className="col-1 col-md-4">
+          <MDBBtn onClick={handleSearchStaff} size='lg' type="submit" value="button">Tìm kiếm</MDBBtn>
+        </div>
+ 
+        </div>
+        <div className="row">{nhanvien}</div>
       </div>
-      <div className="row">{nhanvien}</div>
+
     </div>
   );
 };
-
 export default StaffList;
-

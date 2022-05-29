@@ -70,7 +70,7 @@ function Salary(props) {
         </Breadcrumb>
       </div>
       {/* button array */}
-  
+       {/* Dự định làm 1 Button click chuyển đổi  */}
       <div class="dropdown">
           <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false">
             Sắp xếp danh sách nhân viên

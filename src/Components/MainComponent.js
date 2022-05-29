@@ -14,28 +14,41 @@ class Main extends Component {
     // Lấy data từ STAFFS ...
     this.state = {
       staffs: STAFFS,
+      staffsView: STAFFS,
       departments: DEPARTMENTS,
     };
   }
-
-
+  changeStaffs = (staffs) => {
+    this.setState({
+      staffs: staffs,
+    });
+  }
+  changeStaffsView = (staffs) => {
+    this.setState({
+      staffsView: staffs,
+    });
+  };
   render() {
 
     const StaffWithId = ({ match }) => {
       // console.log(match.params.nhanvienId);
       return (
         <StaffDetail
-        staff={this.state.staffs.filter((item) => item.id === parseInt(match.params.nhanvienId, 10))[0]}
+          staff={this.state.staffs.filter((item) => item.id === parseInt(match.params.nhanvienId, 10))[0]}
         />
       );
     };
-    
+
     return (
       <div>
         <Header />
         <Switch>
-          <Route exact path='/nhanvien' component={() => <StaffList staffs={this.state.staffs} />} />
-          <Route path ='/nhanvien/:nhanvienId' component={StaffWithId} />
+          <Route exact path='/nhanvien' component={() => <StaffList
+            staffs={this.state.staffs}
+            staffsView={this.state.staffsView}
+            changeStaffsView={this.changeStaffsView} 
+            changeStaffs={this.changeStaffs} />} />
+          <Route path='/nhanvien/:nhanvienId' component={StaffWithId} />
           <Route path='/phongban' component={() => <Department dept={this.state.departments} />} />
           <Route path='/bangluong' component={() => <Salary luong={this.state.staffs} />} />
           <Redirect to="/nhanvien" />
