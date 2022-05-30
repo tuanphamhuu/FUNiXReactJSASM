@@ -40,7 +40,9 @@ class Main extends Component {
     };
 
     return (
+      
       <div>
+        
         <Header />
         <Switch>
           <Route exact path='/nhanvien' component={() => <StaffList
