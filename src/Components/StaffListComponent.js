@@ -96,7 +96,7 @@ const StaffList = (props) => {
               </div>
               <Col md={{ size: 5, offset: 30 }}>
              
-                <MDBBtn onClick={handleSearchStaff} size='lg' type="submit" value="button">Tìm kiếm</MDBBtn>
+                <MDBBtn onClick={handleSearchStaff}  type="submit" value="button">Tìm kiếm</MDBBtn>
            
               </Col>
             </Col>

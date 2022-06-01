@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import {
-    Navbar, Nav, NavbarToggler, Collapse, NavItem,
     Button, Modal, ModalHeader, ModalBody,
     Form, FormGroup, Input, Label, Col
 } from 'reactstrap';
-
 
 class AddStaffs extends Component {
     //    tạo state cho Component Header 
@@ -21,18 +19,11 @@ class AddStaffs extends Component {
             salary: '',
             image: '/assets/images/alberto.png',
 
-            isNavOpen: false,
             isModalOpen: false
         };
-        this.toggleNav = this.toggleNav.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
-        this.handleLogin = this.handleLogin.bind(this);
-    }
-    // toggleNav để chuyển đổi giá trị isNavOpen
-    toggleNav() {
-        this.setState({
-            isNavOpen: !this.state.isNavOpen
-        });
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     toggleModal() {
@@ -40,41 +31,35 @@ class AddStaffs extends Component {
             isModalOpen: !this.state.isModalOpen
         });
     }
-    // handle the form submission
-    handleLogin(event) {
-        this.toggleModal();
-        alert("Staffname: " + this.staffname.value + " Password: " + this.password.value
-            + " Remember: " + this.remember.checked);
-        event.preventDefault();
+// nhận event làm tham số
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
 
+        this.setState({
+            [name]: value
+        });
     }
 
+    handleSubmit(event) {
+        console.log('Current State is: ' + JSON.stringify(this.state));
+        alert('Current State is: ' + JSON.stringify(this.state));
+        event.preventDefault();
+    }
     render() {
         return (
             <React.Fragment>
-                <Navbar expand="md">
-                    <div className="container">
-                        <NavbarToggler onClick={this.toggleNav} />
-
-                        <Collapse isOpen={this.state.isNavOpen} navbar>
-                            {/* isOpen : thuộc tính Boolean  */}
-
+                    <div >
                             {/* Icon  Login  Button */}
-                            <Nav className="ml-auto" navbar>
-                                <NavItem>
-                                    <Button outline onClick={this.toggleModal}><span className="fa fa-plus fa-lg"></span></Button>
-                                </NavItem>
-                            </Nav>
-                        </Collapse>
-                    </div>
-                </Navbar>
-
+                                    <Button color="primary" outline onClick={this.toggleModal}><span className="fa fa-plus fa-lg " ></span></Button>
+                   </div>
+              
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}> Thêm nhân viên</ModalHeader>
-
-                    {/* Adding the Uncontrolled Form - Sử dụng chức năng thêm nhân viên sử dụng controlled forms. */}
+                    {/* Adding the controlled Form - thêm nhân viên */}
                     <ModalBody>
-                        <Form onSubmit={this.handleLogin}>
+                        <Form onSubmit={this.handleSubmit}>
                             <FormGroup>
                                 <Label htmlFor="name"> Tên </Label>
                                 <Input type="text" id="staffsname" name="staffsname"
@@ -85,17 +70,17 @@ class AddStaffs extends Component {
                             <FormGroup>
                                 <Label htmlFor="doB"> Ngày sinh</Label>
                                 <Input type="date" id="doB" name="doB"
-                                        value={this.state.dob}
+                                        value={this.state.doB}
                                         onChange={this.handleInputChange} />
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="startDate"> Ngày vào công ty</Label>
                                 <Input type="date" id="startDate" name="startDate"
-                                    value={this.state.startdate}
+                                    value={this.state.startDate}
                                     onChange={this.handleInputChange} />
                             </FormGroup>
-                            <FormGroup>
-                            <Col md={{ size: 16, offset: 0 }}>
+                            <FormGroup >
+                            <Col md={{ size: 3, offset: 0 }}>
                                 <Label htmlFor="department"> Phòng ban </Label><br />
                                 <select id="department" name="department" 
                                     value={this.state.department}
@@ -111,13 +96,13 @@ class AddStaffs extends Component {
                             <FormGroup>
                                 <Label htmlFor="salaryScale"> Hệ số lương </Label>
                                 <Input type="text" id="salaryScale" name="salaryScale"
-                                    value={this.state.salarysale}
+                                    value={this.state.salarySale}
                                     onChange={this.handleInputChange} />
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="annualLeave"> Số ngày nghỉ còn lại  </Label>
                                 <Input type="text" id="annualLeave" name="annualLeave"
-                                    value={this.state.annualleave}
+                                    value={this.state.annualLeave}
                                     onChange={this.handleInputChange} />
                             </FormGroup>
                             <FormGroup>
@@ -126,7 +111,6 @@ class AddStaffs extends Component {
                                     value={this.state.overTime}
                                     onChange={this.handleInputChange} />
                             </FormGroup>
-
                             <Button type="submit" value="submit" color="primary"> Thêm</Button>
                         </Form>
                     </ModalBody>

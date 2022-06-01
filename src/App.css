@@ -44,17 +44,7 @@ address {
   color: #0f0f0f;
 }
 
-.navbar-dark {
-  background-color: #512da8;
-}
-div#navbarSupportedContent {
-  padding-left: 3rem;
-}
 
-.stafflist {
-  font-weight: 2000 !important;
-  font-size: 16px !important;
-}
 
 .salary {
   font-weight: 900;
@@ -63,20 +53,18 @@ div#navbarSupportedContent {
 }
 .detail {
   font-weight: 500;
-  font-size: 24px;
+  font-size: 20px;
   font-family: "Mali", cursive;
-  padding-top: 50px;
+  padding-top: 30px;
   padding-left: 40px !important;
 }
-/* .staffList {
-  font-size:40px !important
-} */
+
 div.header-wrap {
   position: relative;
 }
 .btn-hamburger {
   left: 3rem !important;
-  top: 2rem;
+  top: 1rem;
   position: absolute;
   font-size: 16px;
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavbarBrand } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {MDBIcon} from "mdb-react-ui-kit";
 function Header() {
 
     return (
@@ -16,7 +17,8 @@ function Header() {
                         aria-controls="navbarSupportedContent"
                         aria-expanded="true"
                         aria-label="Toggle navigation"
-                    > <i class="glyphicon glyphicon-menu-hamburger" ></i>
+                    > 
+                    <MDBIcon icon="align-justify" />
                     </button>
 
                     <NavbarBrand href="/" className="mr-auto"><img src="assets/images/logonhansu.png" width="35" alt="Quan Li Nhan Vien" /> </NavbarBrand>
