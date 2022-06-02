@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavbarBrand } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {MDBIcon} from "mdb-react-ui-kit";
 function Header() {
 
