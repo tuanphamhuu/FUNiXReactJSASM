@@ -102,7 +102,7 @@ const StaffList = (props) => {
             </Col>
           </FormGroup>
           {/* Thêm nhân viên */}
-          <AddStaffs />
+          <AddStaffs/>
         </div>
         <div className="row">{nhanvien}</div>
         

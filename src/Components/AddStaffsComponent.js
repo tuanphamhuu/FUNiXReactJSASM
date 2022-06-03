@@ -41,20 +41,50 @@ class AddStaffs extends Component {
     // nhận event làm tham số
     handleInputChange(event) {
         const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const value = target.value;
         const name = target.name;
-
         this.setState({
             [name]: value
         });
     }
 
+    
     handleSubmit(event) {
-        console.log('Current State is: ' + JSON.stringify(this.state));
-        alert('Current State is: ' + JSON.stringify(this.state));
-        event.preventDefault();
+        //console.log('Current State is: ' + JSON.stringify(this.state));
+        //alert('Current State is: ' + JSON.stringify(this.state));
+         
+        const newStaff = {
+            name: this.state.name,
+            doB: this.state.doB,
+            startDate: this.state.startDate,
+            salaryScale: this.state.salaryScale,
+            department: this.state.department,
+            annualLeave: this.state.annualLeave,
+            overTime: this.state.overTime,
+            salary: this.state.salary,
+            image: this.state.image,
+        };
+        event.preventDefault();  
+        console.log(this.props)
+        this.props.onAdd(newStaff)
     }
 
+    // handleSubmit = () => {
+    //     const newStaff = {
+    //         name: this.state.name,
+    //         doB: this.state.doB,
+    //         startDate: this.state.startDate,
+    //         salaryScale: this.state.salaryScale,
+    //         department: this.state.department,
+    //         annualLeave: this.state.annualLeave,
+    //         overTime: this.state.overTime,
+    //         salary: this.state.salary,
+    //         image: this.state.image,
+    //     };
+    //     this.props.onAdd(newStaff)
+    // }
+
+  
     handleBlur = (field) => (evt) => {
         this.setState({
             touched: { ...this.state.touched, [field]: true }
@@ -75,32 +105,28 @@ class AddStaffs extends Component {
             errors.name = 'Tên nhân viên phải trên 3 ký tự';
         else if (this.state.touched.name && name.length > 20)
             errors.name = 'Tên nhân viên phải bé hơn 20 ký tự';
-
-        // if (name == null || name == '' || doB == null || doB == ''|| startDate == null || startDate == ''|| salaryScale == null || salaryScale == '') 
-        //     errors.name = 'Xin hãy nhập thông tin ';
-
-        // const thisYear = new Date().getFullYear();
-        //     if (parseInt(startDate) > parseInt(thisYear)) {
-        //         errors.startDate = ' Ngày vào công ty bị sai'; 
-        //     }
         if (this.state.touched.doB && doB < 1)
             errors.doB = 'Yêu cầu nhập';
-        // else if (doB == null || doB == '')
-        // {errors.doB = 'Không được để trống';}
-
         if (this.state.touched.startDate && startDate < 1)
             errors.startDate = 'Yêu cầu nhập';
-        if (this.state.touched.salaryScale && salaryScale < 1)
+        if (this.state.touched.salaryScale && salaryScale.length < 1)
             errors.salaryScale = 'Yêu cầu nhập';
-        if (this.state.touched.annualLeave && annualLeave < 1)
+        if (this.state.touched.annualLeave && annualLeave.length < 1)
             errors.annualLeave = 'Yêu cầu nhập';
-        if (this.state.touched.overTime && overTime < 1)
+        if (this.state.touched.overTime && overTime.length < 1)
             errors.overTime = 'Yêu cầu nhập';
         return errors;
     }
 
     render() {
-        const errors = this.validate(this.state.name, this.state.doB, this.state.startDate, this.state.salaryScale, this.state.annualLeave, this.state.overTime);
+        const errors = this.validate(
+            this.state.name,
+            this.state.doB,
+            this.state.startDate,
+            this.state.salaryScale,
+            this.state.annualLeave,
+            this.state.overTime
+            );
         return (
             <React.Fragment>
                 <div >
