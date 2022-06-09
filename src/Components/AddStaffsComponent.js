@@ -91,7 +91,7 @@ class AddStaffs extends Component {
         });
     }
 
-    validate(name, doB, salaryScale, startDate, annualLeave, overTime) {
+    validate(name, doB, startDate, salaryScale, annualLeave, overTime) {
         const errors = {
             name: '',
             doB: '',
@@ -140,8 +140,8 @@ class AddStaffs extends Component {
                     <ModalBody>
                         <Form onSubmit={this.handleSubmit}>
                             <Row >
-                                <Label htmlFor="name" md={2}> Tên </Label>
-                                <Col md={10}>
+                                <Label htmlFor="name" md={4}> Tên </Label>
+                                <Col md={8}>
                                     <Input type="text" id="name" name="name"
                                         placeholder="Tên nhân viên"
                                         value={this.state.name}
@@ -154,8 +154,8 @@ class AddStaffs extends Component {
                             </Row>
 
                             <Row >
-                                <Label htmlFor="doB" md={3}> Ngày sinh</Label>
-                                <Col md={9}>
+                                <Label htmlFor="doB" md={5}> Ngày sinh</Label>
+                                <Col md={7}>
                                     <Input type="date" id="doB" name="doB"
                                         value={this.state.doB}
                                         valid={errors.doB === ''}
@@ -179,8 +179,8 @@ class AddStaffs extends Component {
                             </Row>
                             <FormGroup>
                                 <Row>
-                                    <Label htmlFor="department" md={3}> Phòng ban </Label><br />
-                                    <Col md={9}>
+                                    <Label htmlFor="department" md={5}> Phòng ban </Label><br />
+                                    <Col md={7}>
                                         <Input
                                             id="department" name="department"
                                             type="select"
@@ -196,8 +196,8 @@ class AddStaffs extends Component {
                                 </Row>
                             </FormGroup>
                             <Row>
-                                <Label htmlFor="salaryScale" md={4}> Hệ số lương </Label>
-                                <Col md={8}>
+                                <Label htmlFor="salaryScale" md={5}> Hệ số lương </Label>
+                                <Col md={7}>
                                     <Input type="number" id="salaryScale" name="salaryScale"
                                         value={this.state.salaryScale}
                                         valid={errors.salaryScale === ''}
