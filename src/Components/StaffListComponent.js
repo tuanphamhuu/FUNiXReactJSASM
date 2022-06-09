@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
-import { Card, CardImg, Breadcrumb, BreadcrumbItem, Col, FormGroup } from "reactstrap";
+import { Card, CardImg, Breadcrumb, BreadcrumbItem, Col, FormGroup, Row } from "reactstrap";
 import { Link } from 'react-router-dom';
-import { MDBBtn, MDBCol } from "mdb-react-ui-kit";
+import { MDBBtn } from "mdb-react-ui-kit";
 import AddStaffs from './AddStaffsComponent';
 
 function RenderStaffList({ staff }) {
@@ -27,7 +27,6 @@ const StaffList = (props) => {
   const inputName = useRef();
   // Search Staff
   const handleSearchStaff = () => {
-    console.log('List staffs', props.staffs);
     let listView = props.staffs;
     const searchText = inputName.current.value.toString().toLowerCase();
     console.log('Gia tri tu o Input:', searchText, inputName.current.value);
@@ -42,13 +41,10 @@ const StaffList = (props) => {
       });
     }
     else {
-      // alert("Ô tìm kiếm trống")
       <div className="row">{nhanvien}</div>
     }
-    console.log('Gia tri loc', listView);
     props.changeStaffsView(listView);
   };
-
 
 
   const nhanvien = props.staffsView.map((staff) => {
@@ -59,7 +55,16 @@ const StaffList = (props) => {
     );
   });
 
+  const addStaff = (staff) => {
+    let list = [];
+    list = props.staffs;
+    const id = new Date().getTime();
+    const newStaff = { id, ...staff };
+    // list.unshift( JSON.stringify(newStaff));
+    list.unshift(newStaff);
+    props.changeStaffs(list);
 
+  }
   return (
     <div className="container">
       <div className="row">
@@ -68,44 +73,47 @@ const StaffList = (props) => {
           <BreadcrumbItem active> Danh Sách Nhân Viên</BreadcrumbItem>
         </Breadcrumb>
 
-        <div>
-          {/* Dropdown Button*/}
-          <div class="dropdown">
-            <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false">
-              Sắp xếp danh sách nhân viên
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <li><button class="dropdown-item" type="button" onClick={() => setCol("col-md-12 mt-12")}>1 cột </button></li>
-              <li><button class="dropdown-item" type="button" onClick={() => setCol("col-md-6 mt-1")}>2 cột </button></li>
-              <li><button class="dropdown-item" type="button" onClick={() => setCol("col-md-4 mt-1")}>3 cột </button></li>
-              <li><button class="dropdown-item" type="button" onClick={() => setCol("col-md-3 mt-1")}>4 cột </button></li>
-              <li><button class="dropdown-item" type="button" onClick={() => setCol("col-md-2 mt-1")}>6 cột </button></li>
-            </ul>
-          </div>
-
-          {/* Tìm kiếm nhân viên - sử dụng uncontrolled form */}
-          <FormGroup row>
-            <Col md={{ size: 17, offset: 0 }}>
-              <div className="col-5 col-md-3">
-                <input label=''
-                  ref={inputName}
-                  type="text"
-                  className="form-control"
-                  placeholder="Tìm kiếm nhân viên..."
-                />
-              </div>
-              <Col md={{ size: 5, offset: 30 }}>
-             
-                <MDBBtn onClick={handleSearchStaff}  type="submit" value="button">Tìm kiếm</MDBBtn>
-           
-              </Col>
+        <FormGroup row>
+          <Row>
+            {/* Thêm nhân viên */}
+            <Col md={3} >
+              <AddStaffs onAdd={addStaff} />
             </Col>
-          </FormGroup>
-          {/* Thêm nhân viên */}
-          <AddStaffs/>
-        </div>
+            <Col md={9} className="text-right">
+              {/* Dropdown Button*/}
+              <div class="dropdown" >
+                <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false">
+                  Sắp xếp danh sách nhân viên
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <li><button class="dropdown-item" type="button" onClick={() => setCol("col-md-12 mt-12")}>1 cột </button></li>
+                  <li><button class="dropdown-item" type="button" onClick={() => setCol("col-md-6 mt-1")}>2 cột </button></li>
+                  <li><button class="dropdown-item" type="button" onClick={() => setCol("col-md-4 mt-1")}>3 cột </button></li>
+                  <li><button class="dropdown-item" type="button" onClick={() => setCol("col-md-3 mt-1")}>4 cột </button></li>
+                  <li><button class="dropdown-item" type="button" onClick={() => setCol("col-md-2 mt-1")}>6 cột </button></li>
+                </ul>
+              </div>
+            </Col>
+          </Row>
+        </FormGroup>
+        {/* Tìm kiếm nhân viên - sử dụng uncontrolled form */}
+        <FormGroup>
+          <Row >
+            <Col className=" col-md-3 text-right">
+              <input label=''
+                ref={inputName}
+                type="text"
+                className="form-control"
+                placeholder="Tìm kiếm nhân viên..."
+              />
+            </Col>
+            <Col >
+              <MDBBtn onClick={handleSearchStaff} type="submit" value="button">Tìm kiếm</MDBBtn>
+            </Col>
+          </Row>
+        </FormGroup>
+        <hr />
         <div className="row">{nhanvien}</div>
-        
       </div>
     </div>
   );

@@ -82,3 +82,10 @@ div.header-wrap {
   color: rgb(0, 13, 128);
   font-size: 24px;
 }
+/* .dropDownCss{
+  padding-right:0%;
+} */
+
+.text-right{
+  text-align: right;
+}

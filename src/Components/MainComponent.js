@@ -7,33 +7,32 @@ import Department from "./DepartmentComponent"
 import Salary from "./SalaryComponent";
 import { STAFFS, DEPARTMENTS } from "../shared/staffs";
 import { Switch, Route, Redirect } from 'react-router-dom';
-import AddStaffs from "./AddStaffsComponent";
 class Main extends Component {
   constructor(props) {
     super(props);
-    // Lấy data từ STAFFS ...
-    this.state = {
-      staffs: STAFFS,
-      staffsView: STAFFS,
-      departments: DEPARTMENTS,
-    };
-    this.addStaff = this.addStaff.bind(this);
+    // khoi tao toan bo data app
+    // const dataFromStorage = localStorage.getItem('STAFFS');
+    // console.log('data??', dataFromStorage);
+    // if (dataFromStorage) {
+    //   this.state = {
+    //     staffs: JSON.parse(dataFromStorage),
+    //     staffsView: dataFromStorage,
+    //     departments: DEPARTMENTS,
+    //   };
+    // } else {
+      this.state = {
+        staffs: STAFFS,
+        staffsView: STAFFS,
+        departments: DEPARTMENTS,
+      // };
+    }
+    // localStorage.setItem('STAFFS', this.state.staffs);
   }
-
-  addStaff = (staff) => {
-    const id = Math.floor(Math.random() * 10000 + 1);
-    const newStaff = { id, ...staff };
-    this.setState({
-      staffs: [...this.state.staffs, newStaff]
-    });
-    console.log('news staff', newStaff);
-    console.log(this.state.staffs)
-  };
-
   changeStaffs = (staffs) => {
     this.setState({
       staffs: staffs,
     });
+    // localStorage.setItem('STAFFS',  staffs);
   }
   changeStaffsView = (staffs) => {
     this.setState({
@@ -58,13 +57,14 @@ class Main extends Component {
         <Header />
         <Switch>
           <Route exact path='/nhanvien' component={() => <StaffList
-            onAdd={this.addStaff}
+            // onAdd={this.addStaff}
             staffs={this.state.staffs}
             staffsView={this.state.staffsView}
             changeStaffsView={this.changeStaffsView}
             changeStaffs={this.changeStaffs}
           />}
           />
+
           <Route path='/nhanvien/:nhanvienId' component={StaffWithId} />
           <Route path='/phongban' component={() => <Department dept={this.state.departments} />} />
           <Route path='/bangluong' component={() => <Salary luong={this.state.staffs} />} />

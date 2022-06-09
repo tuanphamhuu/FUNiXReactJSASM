@@ -37,6 +37,7 @@ function Department(props) {
           <BreadcrumbItem><Link to="/nhanvien">Nhân viên</Link></BreadcrumbItem>
           <BreadcrumbItem active> Danh Sách Phòng Ban</BreadcrumbItem>
         </Breadcrumb>
+        <hr/>
       </div>
       <div className="row shadow m-3">{departments}</div>
     </div>

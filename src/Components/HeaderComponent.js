@@ -20,7 +20,7 @@ function Header() {
                     <MDBIcon icon="align-justify" />
                     </button>
 
-                    <NavbarBrand href="/" className="mr-auto"><img src="assets/images/logonhansu.png" width="35" alt="Quan Li Nhan Vien" /> </NavbarBrand>
+                    <NavbarBrand href="/" className="mr-auto"><img src="assets/images/nhansu2.png" width="35" alt="Quan Li Nhan Vien" /> </NavbarBrand>
                     {/* Collapsible wrapper */}
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
