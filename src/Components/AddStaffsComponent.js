@@ -136,7 +136,7 @@ class AddStaffs extends Component {
 
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}> Thêm nhân viên</ModalHeader>
-                    {/* Adding the controlled Form - thêm nhân viên */}
+                    {/* Adding the controlled Form - form validation - thêm nhân viên */}
                     <ModalBody>
                         <Form onSubmit={this.handleSubmit}>
                             <Row >
@@ -144,6 +144,7 @@ class AddStaffs extends Component {
                                 <Col md={8}>
                                     <Input type="text" id="name" name="name"
                                         placeholder="Tên nhân viên"
+                       
                                         value={this.state.name}
                                         valid={errors.name === ''}
                                         invalid={errors.name !== ''}
@@ -160,6 +161,7 @@ class AddStaffs extends Component {
                                         value={this.state.doB}
                                         valid={errors.doB === ''}
                                         invalid={errors.doB !== ''}
+                              
                                         onBlur={this.handleBlur('doB')}
                                         onChange={this.handleInputChange} />
                                     <FormFeedback> {errors.doB} </FormFeedback>
