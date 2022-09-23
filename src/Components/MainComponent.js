@@ -19,28 +19,15 @@ const mapStateToProps = state => {
 class Main extends Component {
   constructor(props) {
     super(props);
-    // khoi tao toan bo data app
-    // const dataFromStorage = localStorage.getItem('STAFFS');
-    // console.log('data??', dataFromStorage);
-    // if (dataFromStorage) {
-    //   this.state = {
-    //     staffs: JSON.parse(dataFromStorage),
-    //     staffsView: dataFromStorage,
-    //     departments: DEPARTMENTS,
-    //   };
-    // } else {
       this.state = {
-        
-      // };
+        staffsViews: this.props.staffsView,
     }
-    // localStorage.setItem('STAFFS', this.state.staffs);
   }
-  changeStaffs = (staffs) => {
-    this.setState({
-      staffs: staffs,
-    });
-    // localStorage.setItem('STAFFS',  staffs);
-  }
+  // changeStaffs = (staffs) => {
+  //   this.setState({
+  //     staffs: staffs,
+  //   });
+  // }
   changeStaffsView = (staffs) => {
     this.setState({
       staffsView: staffs,
@@ -51,7 +38,6 @@ class Main extends Component {
   render() {
 
     const StaffWithId = ({ match }) => {
-      // console.log(match.params.nhanvienId);
       return (
         <StaffDetail
           staff={this.state.staffs.filter((item) => item.id === parseInt(match.params.nhanvienId, 10))[0]}
@@ -64,9 +50,9 @@ class Main extends Component {
         <Header />
         <Switch>
           <Route exact path='/nhanvien' component={() => <StaffList
-            // onAdd={this.addStaff}
-            staffs={this.props.staffs}
-            staffsView={this.props.staffsView}
+            onAdd={this.addStaff}
+            // staffs={this.props.staffs}
+            staffsView={this.state.staffsViews}
             changeStaffsView={this.changeStaffsView}
             changeStaffs={this.changeStaffs}
           />}

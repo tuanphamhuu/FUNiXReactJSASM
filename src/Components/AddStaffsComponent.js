@@ -131,7 +131,6 @@ class AddStaffs extends Component {
                                             className="form-control"
                                             model=".department"
                                             id="department" name="department"
-
                                         >
                                             <option value="HR">HR</option>
                                             <option value="Sale">Sale</option>
@@ -145,7 +144,7 @@ class AddStaffs extends Component {
                             <Row className="form-group">
                                 <Label htmlFor="salaryScale" md={5}> Hệ số lương </Label>
                                 <Col md={7}>
-                                    <Control.number type="number" id="salaryScale" name="salaryScale"
+                                    <Control.text type="number" id="salaryScale" name="salaryScale"
                                         model=".salaryScale"
                                         className=".form-control"
                                         vallidate={{ required, isNumber, minNum, maxNum, }}

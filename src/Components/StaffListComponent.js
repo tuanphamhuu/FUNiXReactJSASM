@@ -60,7 +60,6 @@ const StaffList = (props) => {
     list = props.staffs;
     const id = new Date().getTime();
     const newStaff = { id, ...staff };
-    // list.unshift( JSON.stringify(newStaff));
     list.unshift(newStaff);
     props.changeStaffs(list);
 
