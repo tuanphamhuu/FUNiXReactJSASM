@@ -39,7 +39,7 @@ function RenderStaff({ staffInfor }) {
         <div className="row">
           <MDBRow>
             <MDBCol md='4' className='col-example'>
-              <CardImg width="100%" src={staffInfor.image} alt={staffInfor.name} />
+              <CardImg width="100%" src={window.location.origin + staffInfor.image} alt={staffInfor.name} />
             </MDBCol>
 
             <MDBCol md='8' className='col-example shadow detail'>
